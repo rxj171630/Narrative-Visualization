@@ -58,7 +58,7 @@
 										
 	<script type="text/javascript">
 
-var parseDate = d3.timeParse("%m/%d/%Y");
+var parseDate = d3.timeParse("%Y-%m-%d");
 
 var margin = {left: 50, right: 20, top: 20, bottom: 50 };
 
@@ -77,7 +77,7 @@ var maxDate = new Date();
 
 
 
-d3.csv("DOGE-USD.csv")
+d3.csv("dogecoin.csv")
     .row(function(d) { return { month: parseDate(d.month), price: Number(d.price.trim().slice(1))}; })
     .get(function(error, rows) {
 	    max = d3.max(rows, function(d) { return d.price; });
