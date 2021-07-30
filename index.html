@@ -56,79 +56,73 @@
 									</div>
 									<span class="spotlight">
 										
-	<script type="text/javascript">
-
-var parseDate = d3.timeParse("%Y-%m-%d");
-
-var margin = {left: 50, right: 20, top: 20, bottom: 50 };
-
-var width = 960 - margin.left - margin.right;
-var height = 500 - margin.top - margin.bottom;
-
-
-var max = 0;
-
-var xNudge = 50;
-var yNudge = 20;
-
-var minDate = new Date();
-var maxDate = new Date();
-
-
-
-
-d3.csv("dogecoin.csv")
-    .row(function(d) { return { month: parseDate(d.month), price: Number(d.PriceUSD)}; })
-    .get(function(error, rows) {
-	    max = d3.max(rows, function(d) { return d.PriceUSD; });
-	    minDate = d3.min(rows, function(d) {return d.month; });
-		maxDate = d3.max(rows, function(d) { return d.month; });
-
-
-		var y = d3.scaleLinear()
-					.domain([0,max])
-					.range([height,0]);
-
-		var x = d3.scaleTime()
-					.domain([minDate,maxDate])
-					.range([0,width]);
-
-		var yAxis = d3.axisLeft(y);
-
-		var xAxis = d3.axisBottom(x);
-
-		var line = d3.line()
-			.x(function(d){ return x(d.month); })
-			.y(function(d){ return y(d.price); })
-			.curve(d3.curveCardinal);
-
-
-		var svg = d3.select("body").append("svg").attr("id","svg").attr("height","100%").attr("width","100%");
-		var chartGroup = svg.append("g").attr("class","chartGroup").attr("transform","translate("+xNudge+","+yNudge+")");
-
-		chartGroup.append("path")
-			.attr("class","line")
-			.attr("d",function(d){ return line(rows); })
-
-
-		chartGroup.append("g")
-			.attr("class","axis x")
-			.attr("transform","translate(0,"+height+")")
-			.call(xAxis);
-
-		chartGroup.append("g")
-			.attr("class","axis y")
-			.call(yAxis);
-
-
-
+<!-- load the d3.js library -->	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+ 
+<script>
+ 
+// Set the dimensions of the canvas / graph
+var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+	width = 600 - margin.left - margin.right,
+	height = 270 - margin.top - margin.bottom;
+ 
+// Parse the date / time
+var	parseDate = d3.time.format("%d-%b-%y").parse;
+ 
+// Set the ranges
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
+ 
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(5);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(5);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
+// Adds the svg canvas
+var	svg = d3.select("body")
+	.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+// Get the data
+d3.csv("dogecoin.csv", function(error, data) {
+	data.forEach(function(d) {
+		d.date = parseDate(d.date);
+		d.PriceUSD = +d.PriceUSD;
 	});
-
-
-
-
-
-	</script>
+ 
+	// Scale the range of the data
+	x.domain(d3.extent(data, function(d) { return d.date; }));
+	y.domain([0, d3.max(data, function(d) { return d.PriceUSD; })]);
+ 
+	// Add the valueline path.
+	svg.append("path")	
+		.attr("class", "line")
+		.attr("d", valueline(data));
+ 
+	// Add the X Axis
+	svg.append("g")		
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+ 
+	// Add the Y Axis
+	svg.append("g")		
+		.attr("class", "y axis")
+		.call(yAxis);
+ 
+});
+ 
+</script>
 										
 									
 									</span>
