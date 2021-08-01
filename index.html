@@ -669,7 +669,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	
 	svg5.append("text")
 	.attr("class", "annotation")
-	.attr("x", (x(parseDate("5/7/2021"))-160))
+	.attr("x", (x(parseDate("5/7/2021"))-155))
     	.attr("y", y(0.685335))
 	.attr('text-anchor', 'right')
 	.text("WallStreetBets/Elon Musk");
@@ -810,6 +810,54 @@ d3.csv("dogecoin1.csv", function(error, data) {
     	.attr("y", y(0.016763))
 	.attr('text-anchor', 'right')
 	.text("Bitcoin breaks $19,783");
+	
+	// Add point
+	svgf.append("circle")
+    	.attr("class", "dot") // Assign a class for styling
+    	.attr("cx", x(parseDate("4/19/2018")))
+    	.attr("cy", y(0.005818))
+    	.attr("r", 5)
+	
+	// Add annotation
+	
+	svgf.append("text")
+	.attr("class", "annotation")
+	.attr("x", (x(parseDate("4/19/2018"))-135))
+    	.attr("y", y(0.005818))
+	.attr('text-anchor', 'right')
+	.text("Crypto markets rebound");
+	
+		// Add point
+	svgf.append("circle")
+    	.attr("class", "dot") // Assign a class for styling
+    	.attr("cx", x(parseDate("9/10/2018")))
+    	.attr("cy", y(0.006851))
+    	.attr("r", 5)
+	
+	// Add annotation
+	
+	svgf.append("text")
+	.attr("class", "annotation")
+	.attr("x", (x(parseDate("9/10/2018"))-170))
+    	.attr("y", y(0.006851))
+	.attr('text-anchor', 'right')
+	.text("Ethereum/Dogecoin bridge test");
+	
+	// Add point
+	svgf.append("circle")
+    	.attr("class", "dot") // Assign a class for styling
+    	.attr("cx", x(parseDate("5/7/2021")))
+    	.attr("cy", y(0.685335))
+    	.attr("r", 5)
+	
+	// Add annotation
+	
+	svgf.append("text")
+	.attr("class", "annotation")
+	.attr("x", (x(parseDate("5/7/2021"))-155))
+    	.attr("y", y(0.685335))
+	.attr('text-anchor', 'right')
+	.text("WallStreetBets/Elon Musk");
  
 });
  
