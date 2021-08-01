@@ -262,25 +262,25 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	y.domain([0, d3.max(data, function(d) { return d.PriceUSD; })]);
  
 	// Add the valueline path.
-	svg1.append("path")	
+	svg2.append("path")	
 		.attr("class", "line")
 		.attr("d", valueline(data));
  
 	// Add the X Axis
-	svg1.append("g")		
+	svg2.append("g")		
 		.attr("class", "x axis")
 		.style("font", "10px sans-serif")
 		.attr("transform", "translate(0," + height + ")")
 		.call(xAxis);
  
 	// Add the Y Axis
-	svg1.append("g")		
+	svg2.append("g")		
 		.attr("class", "y axis")
 		.style("font", "10px sans-serif")
 		.call(yAxis);
 	
 	// Add point
-	svg1.append("circle")
+	svg2.append("circle")
     	.attr("class", "dot") // Assign a class for styling
     	.attr("cx", x(parseDate("1/7/2018")))
     	.attr("cy", 0.016763)
@@ -288,7 +288,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	
 	// Add annotation
 	
-	svg1.append("text")
+	svg2.append("text")
 	.attr("class", "annotation")
 	.attr("x", (x(parseDate("1/7/2018"))-110))
     	.attr("y", 0.016763)
