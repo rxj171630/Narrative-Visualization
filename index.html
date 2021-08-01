@@ -149,12 +149,12 @@ d3.csv("dogecoin1.csv", function(error, data) {
 		.call(yAxis);
 	
 	// Add point
-	svg.select(".dot")
+	svg.select("dot")
     	.data(data)
   	.enter().append("circle") // Uses the enter().append() method
     	.attr("class", "dot") // Assign a class for styling
-    	.attr("cx", function(d) {return d.date})
-    	.attr("cy", function(d) { return d3.max(d.PriceUSD);})
+    	.attr("cx", function(d) {return d.date;})
+    	.attr("cy", function(d) { return d.PriceUSD;})
     	.attr("r", 5)
  
 });
