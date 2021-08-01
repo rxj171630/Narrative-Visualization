@@ -295,8 +295,8 @@ var	valueline = d3.svg.line()
 // Adds the svg canvas
 var	svgf = d3.select("qq")
 	.append("svg")
-		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
+		.attr("width", width + margin.left + margin.right + 200)
+		.attr("height", height + margin.top + margin.bottom + 200)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
  
@@ -334,7 +334,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svgf.append("circle")
     	.attr("class", "dot")
     	.attr("cx", x(parseDate("5/23/2017")))
-    	.attr("cy", +0.003476)
+    	.attr("cy", height-0.003476)
     	.attr("r", 5)
 	
 	// Add annotation
@@ -342,9 +342,9 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svgf.append("text")
 	.attr("class", "annotation")
 	.attr("x", (x(parseDate("5/23/2017"))-110))
-    	.attr("y", +0.003476)
+    	.attr("y", height-0.003476)
 	.attr('text-anchor', 'right')
-	.text("2017 Crypto Boom.");
+	.text("2017 Crypto Boom");
  
 });
  
