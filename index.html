@@ -405,7 +405,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	// Add point
 	svg3.append("circle")
     	.attr("class", "dot") // Assign a class for styling
-    	.attr("cx", x(parseDate("4/20/2018")))
+    	.attr("cx", x(parseDate("4/19/2018")))
     	.attr("cy", y(0.005818))
     	.attr("r", 5)
 	
@@ -413,7 +413,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	
 	svg3.append("text")
 	.attr("class", "annotation")
-	.attr("x", (x(parseDate("4/20/2018"))-135))
+	.attr("x", (x(parseDate("4/19/2018"))-135))
     	.attr("y", y(0.005818))
 	.attr('text-anchor', 'right')
 	.text("Crypto markets rebound");
