@@ -171,7 +171,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 								</div>
 							</section>
 
-						<!-- First Section -->
+						<!-- Second Section -->
 							<section id="second" class="main">
 								<header class="major">
 									<h2>Bitcoin breaks $19,783, lifts dogecoin</h2>
@@ -185,9 +185,122 @@ d3.csv("dogecoin1.csv", function(error, data) {
 											at this stage was $1.6 billion. However, this was very short-lived and within eight days the price unraveled
 											over 70% back down to $0.0047. </p>
 								</ul>
+									<span id="two" class="spotlight"> 
+											<meta charset="utf-8">
+											<style> /* set the CSS */
+ 
+ 
+												path { 
+												stroke: steelblue;
+												stroke-width: 2;
+  												fill: none;
+											}
+											.axis path,
+											.axis line {
+												fill: none;
+												stroke: grey;
+												stroke-width: 1;
+												shape-rendering: crispEdges;
+											}
+											.dot {
+    												fill: #ffab00;
+    												stroke: #fff;
+											}
+											.annotation { font: 12px Sans-Serif;)
+ 
+											</style>
+								
+												
+<!-- load the d3.js library -->	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+ 
+<script>
+ 
+// Set the dimensions of the canvas / graph
+var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+	width = 600 - margin.left - margin.right,
+	height = 400 - margin.top - margin.bottom;
+ 
+// Parse the date / time
+var	parseDate = d3.time.format("%m/%d/%Y").parse;
+ 
+// Set the ranges
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
+ 
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(10);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
+// Adds the svg canvas
+var	svg1 = d3.select("#two")
+	.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+// Get the data
+d3.csv("dogecoin1.csv", function(error, data) {
+	data.forEach(function(d) {
+		d.date = parseDate(d.date);
+		d.PriceUSD = +d.PriceUSD;
+	});
+	
+	data = data.filter(function(d,i){ return (i<1518 && i>1297)});
+ 
+	// Scale the range of the data
+	x.domain(d3.extent(data, function(d) {return d.date;}));
+	y.domain([0, d3.max(data, function(d) { return d.PriceUSD; })]);
+ 
+	// Add the valueline path.
+	svg1.append("path")	
+		.attr("class", "line")
+		.attr("d", valueline(data));
+ 
+	// Add the X Axis
+	svg1.append("g")		
+		.attr("class", "x axis")
+		.style("font", "10px sans-serif")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+ 
+	// Add the Y Axis
+	svg1.append("g")		
+		.attr("class", "y axis")
+		.style("font", "10px sans-serif")
+		.call(yAxis);
+	
+	// Add point
+	svg1.append("circle")
+    	.attr("class", "dot") // Assign a class for styling
+    	.attr("cx", x(parseDate("1/7/2018")))
+    	.attr("cy", 0.016763)
+    	.attr("r", 5)
+	
+	// Add annotation
+	
+	svg1.append("text")
+	.attr("class", "annotation")
+	.attr("x", (x(parseDate("1/7/2018"))-110))
+    	.attr("y", 0.016763)
+	.attr('text-anchor', 'right')
+	.text("2017 Crypto Boom");
+ 
+});
+ 
+</script>								
 							</section>
 
-						<!-- Second Section -->
+						<!-- Third Section -->
 							<section id="third" class="main">
 								<header class="major">
 									<h2>Crypto markets rebound</h2>
@@ -201,7 +314,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 								</ul>								
 							</section>
 						
-						<!-- Third Section -->
+						<!-- Fourth Section -->
 							<section id="fourth" class="main">
 								<header class="major">
 									<h2>Ethereum/Dogecoin bridge test</h2>
@@ -216,7 +329,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 										</p>
 							</section>
 
-						<!-- Get Started -->
+						<!-- Fifth Section -->
 							<section id="fifth" class="main special">
 								<header class="major">
 									<h2>WallStreetBets mania, Elon Musk tweet</h2>
@@ -231,7 +344,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 										Netflix’s “Tiger King” celebrity, Carole Baskin, also tweeted a video voicing her support for the dog-themed cryptocurrency.  </p>
 								</ul>			
 							</section>
-								
+						<!-- Sixth Section -->								
 							<section id="graph" class="main special">
 								<header class="major">
 									<h2>Dogecoin Value since 2013</h2>
