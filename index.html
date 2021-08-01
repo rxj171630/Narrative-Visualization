@@ -96,11 +96,12 @@ var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
 // Define the axes
-var	xAxis = d3.svg.axis().scale(x)
-	.orient("bottom").ticks(10);
+var	xAxis = svg.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
  
-var	yAxis = d3.svg.axis().scale(y)
-	.orient("left").ticks(20);
+var	yAxis = svg.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -226,11 +227,12 @@ var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
 // Define the axes
-var	xAxis = d3.svg.axis().scale(x)
-	.orient("bottom").ticks(10);
+var	xAxis = svg.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
  
-var	yAxis = d3.svg.axis().scale(y)
-	.orient("left").ticks(20);
+var	yAxis = svg.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -352,11 +354,12 @@ var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
 // Define the axes
-var	xAxis = d3.svg.axis().scale(x)
-	.orient("bottom").ticks(10);
+var	xAxis = svg.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
  
-var	yAxis = d3.svg.axis().scale(y)
-	.orient("left").ticks(20);
+var	yAxis = svg.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -480,11 +483,12 @@ var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
 // Define the axes
-var	xAxis = d3.svg.axis().scale(x)
-	.orient("bottom").ticks(10);
+var	xAxis = svg.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
  
-var	yAxis = d3.svg.axis().scale(y)
-	.orient("left").ticks(20);
+var	yAxis = svg.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -608,11 +612,12 @@ var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
 // Define the axes
-var	xAxis = d3.svg.axis().scale(x)
-	.orient("bottom").ticks(10);
+var	xAxis = svg.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
  
-var	yAxis = d3.svg.axis().scale(y)
-	.orient("left").ticks(20);
+var	yAxis = svg.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -730,12 +735,12 @@ var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
 // Define the axes
-var	xAxis = d3.svg.axis().scale(x)
-	.orient("bottom").ticks(10);
+var	xAxis = svg.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
  
-var	yAxis = d3.svg.axis().scale(y)
-	.orient("left").ticks(20);
- 
+var	yAxis = svg.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
 // Define the line
 var	valueline = d3.svg.line()
 	.x(function(d) { return x(d.date); })
