@@ -505,7 +505,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 		d.PriceUSD = +d.PriceUSD;
 	});
 	
-	data = data.filter(function(d,i){ return (i>1189 && i<1296)});
+	data = data.filter(function(d,i){ return (i>1051 && i<1189)});
  
 	// Scale the range of the data
 	x.domain(d3.extent(data, function(d) {return d.date;}));
@@ -532,16 +532,16 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	// Add point
 	svg4.append("circle")
     	.attr("class", "dot") // Assign a class for styling
-    	.attr("cx", x(parseDate("4/18/2018")))
-    	.attr("cy", y(0.005818))
+    	.attr("cx", x(parseDate("9/10/2018")))
+    	.attr("cy", y(0.006851))
     	.attr("r", 5)
 	
 	// Add annotation
 	
 	svg4.append("text")
 	.attr("class", "annotation")
-	.attr("x", (x(parseDate("4/18/2018"))-135))
-    	.attr("y", y(0.005818))
+	.attr("x", (x(parseDate("9/10/2018"))-135))
+    	.attr("y", y(0.006851))
 	.attr('text-anchor', 'right')
 	.text("Ethereum/Dogecoin bridge test");
  
