@@ -154,6 +154,15 @@ d3.csv("dogecoin1.csv", function(error, data) {
     	.attr("cx", x(parseDate("5/23/2017")))
     	.attr("cy", "0.003476")
     	.attr("r", 5)
+	
+	// Add annotation
+	
+	svg.append("text")
+	.attr("class", "annotation")
+	.attr("x", x(parseDate("5/23/2017")))
+    	.attr("y", "0.003476")
+	.attr('text-anchor', 'middle')
+	.text("I'm a label");
  
 });
  
