@@ -84,36 +84,36 @@
 <script>
  
 // Set the dimensions of the canvas / graph
-var	margin = {top: 30, right: 20, bottom: 30, left: 50},
-	width = 600 - margin.left - margin.right,
-	height = 400 - margin.top - margin.bottom;
+var	margin1 = {top: 30, right: 20, bottom: 30, left: 50},
+	width1 = 600 - margin1.left - margin1.right,
+	height1 = 400 - margin1.top - margin1.bottom;
  
 // Parse the date / time
 var	parseDate = d3.time.format("%m/%d/%Y").parse;
  
 // Set the ranges
-var	x = d3.time.scale().range([0, width]);
-var	y = d3.scale.linear().range([height, 0]);
+var	x = d3.time.scale().range([0, width1]);
+var	y = d3.scale.linear().range([height1, 0]);
  
 // Define the axes
-var	xAxis = d3.svg.axis().scale(x)
+var	xAxis1 = d3.svg.axis().scale(x)
 	.orient("bottom").ticks(10);
  
-var	yAxis = d3.svg.axis().scale(y)
+var	yAxis1 = d3.svg.axis().scale(y)
 	.orient("left").ticks(20);
  
 // Define the line
-var	valueline = d3.svg.line()
+var	valueline1 = d3.svg.line()
 	.x(function(d) { return x(d.date); })
 	.y(function(d) { return y(d.PriceUSD); });
     
 // Adds the svg canvas
 var	svg1 = d3.select("#one")
 	.append("svg")
-		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
+		.attr("width", width1 + margin1.left + margin1.right)
+		.attr("height", height1 + margin1.top + margin1.bottom)
 	.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		.attr("transform", "translate(" + margin1.left + "," + margin1.top + ")");
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
@@ -137,20 +137,20 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svg1.append("g")		
 		.attr("class", "x axis")
 		.style("font", "10px sans-serif")
-		.attr("transform", "translate(0," + height + ")")
-		.call(xAxis);
+		.attr("transform", "translate(0," + height1 + ")")
+		.call(xAxis1);
  
 	// Add the Y Axis
 	svg1.append("g")		
 		.attr("class", "y axis")
 		.style("font", "10px sans-serif")
-		.call(yAxis);
+		.call(yAxis1);
 	
 	// Add point
 	svg1.append("circle")
     	.attr("class", "dot") // Assign a class for styling
     	.attr("cx", x(parseDate("5/23/2017")))
-    	.attr("cy", height-0.003476)
+    	.attr("cy", height1-0.003476)
     	.attr("r", 5)
 	
 	// Add annotation
@@ -158,7 +158,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svg1.append("text")
 	.attr("class", "annotation")
 	.attr("x", (x(parseDate("5/23/2017"))-110))
-    	.attr("y", height-0.003476)
+    	.attr("y", height1-0.003476)
 	.attr('text-anchor', 'right')
 	.text("2017 Crypto Boom");
  
