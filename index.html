@@ -92,8 +92,8 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 var	parseDate = d3.timeParse("%m/%d/%Y");
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]);
-var	y = d3.scaleLinear().range([height, 0]);
+var	x = d3.scaleTime().range([0, width]).ticks(10);
+var	y = d3.scaleLinear().range([height, 0]).ticks(20);
  
 // Adds the svg canvas
 var	svg1 = d3.select("#one")
@@ -106,10 +106,10 @@ var	svg1 = d3.select("#one")
 // Define the axes
 var	xAxis = svg1.append("g")
 	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
+        .call(d3.axisBottom(x));
  
 var	yAxis = svg1.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
+      .call(d3.axisLeft(y));
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -223,8 +223,8 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 var	parseDate = d3.timeParse("%m/%d/%Y");
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]);
-var	y = d3.scaleLinear().range([height, 0]);
+var	x = d3.scaleTime().range([0, width]).ticks(10);
+var	y = d3.scaleLinear().range([height, 0]).ticks(20);
 
 	
 // Adds the svg canvas
@@ -238,10 +238,10 @@ var	svg2 = d3.select("#two")
 // Define the axes
 var	xAxis = svg2.append("g")
 	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
+        .call(d3.axisBottom(x));
  
 var	yAxis = svg2.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
+      .call(d3.axisLeft(y));
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -352,8 +352,8 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 var	parseDate = d3.timeParse("%m/%d/%Y");
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]);
-var	y = d3.scaleLinear().range([height, 0]);
+var	x = d3.scaleTime().range([0, width]).ticks(10);
+var	y = d3.scaleLinear().range([height, 0]).ticks(20);
 	
 // Adds the svg canvas
 var	svg3 = d3.select("#three")
@@ -366,10 +366,10 @@ var	svg3 = d3.select("#three")
 // Define the axes
 var	xAxis = svg3.append("g")
 	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
+        .call(d3.axisBottom(x));
  
 var	yAxis = svg3.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
+      .call(d3.axisLeft(y));
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -482,8 +482,8 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 var	parseDate = d3.timeParse("%m/%d/%Y");
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]);
-var	y = d3.scaleLinear().range([height, 0]);
+var	x = d3.scaleTime().range([0, width]).ticks(10);
+var	y = d3.scaleLinear().range([height, 0]).ticks(20);
  
 // Adds the svg canvas
 var	svg4 = d3.select("#four")
@@ -496,10 +496,10 @@ var	svg4 = d3.select("#four")
 // Define the axes
 var	xAxis = svg4.append("g")
 	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
+        .call(d3.axisBottom(x));
  
 var	yAxis = svg4.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
+      .call(d3.axisLeft(y));
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -612,8 +612,8 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 var	parseDate = d3.timeParse("%m/%d/%Y");
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]);
-var	y = d3.scaleLinear().range([height, 0]);
+var	x = d3.scaleTime().range([0, width]).ticks(10);
+var	y = d3.scaleLinear().range([height, 0]).ticks(20);
  
 // Adds the svg canvas
 var	svg5 = d3.select("#five")
@@ -626,10 +626,10 @@ var	svg5 = d3.select("#five")
 // Define the axes
 var	xAxis = svg5.append("g")
 	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
+        .call(d3.axisBottom(x));
  
 var	yAxis = svg5.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
+      .call(d3.axisLeft(y));
  
 // Define the line
 var	valueline = d3.svg.line()
@@ -735,8 +735,8 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 var	parseDate = d3.timeParse("%m/%d/%Y");
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]);
-var	y = d3.scaleLinear().range([height, 0]);
+var	x = d3.scaleTime().range([0, width]).ticks(10);
+var	y = d3.scaleLinear().range([height, 0]).ticks(20);
  
 // Adds the svg canvas
 var	svgf = d3.select("q")
@@ -749,10 +749,10 @@ var	svgf = d3.select("q")
 // Define the axes
 var	xAxis = svgf.append("g")
 	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
+        .call(d3.axisBottom(x));
  
 var	yAxis = svgf.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
+      .call(d3.axisLeft(y)));
 	
 // Define the line
 var	valueline = d3.svg.line()
