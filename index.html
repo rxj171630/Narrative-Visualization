@@ -122,9 +122,11 @@ d3.csv("dogecoin1.csv", function(error, data) {
 		d.date = parseDate(d.date);
 		d.PriceUSD = +d.PriceUSD;
 	});
+	
+	data = data.filter(function(d,i){ return i>1518});
  
 	// Scale the range of the data
-	x.domain(d3.extent(data, function(d,i) { if (i > 1518) {return d.date;}}));
+	x.domain(d3.extent(data, function(d) {return d.date;}));
 	y.domain([0, d3.max(data, function(d) { return d.PriceUSD; })]);
  
 	// Add the valueline path.
