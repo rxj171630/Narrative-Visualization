@@ -110,7 +110,7 @@ var	valueline = d3.svg.line()
 	.y(function(d) { return y(d.PriceUSD); });
     
 // Adds the svg canvas
-var	svg = d3.select("#1")
+var	svg1 = d3.select("#1")
 	.append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
@@ -131,25 +131,25 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	y.domain([0, d3.max(data, function(d) { return d.PriceUSD; })]);
  
 	// Add the valueline path.
-	svg.append("path")	
+	svg1.append("path")	
 		.attr("class", "line")
 		.attr("d", valueline(data));
  
 	// Add the X Axis
-	svg.append("g")		
+	svg1.append("g")		
 		.attr("class", "x axis")
 		.style("font", "10px sans-serif")
 		.attr("transform", "translate(0," + height + ")")
 		.call(xAxis);
  
 	// Add the Y Axis
-	svg.append("g")		
+	svg1.append("g")		
 		.attr("class", "y axis")
 		.style("font", "10px sans-serif")
 		.call(yAxis);
 	
 	// Add point
-	svg.append("circle")
+	svg1.append("circle")
     	.attr("class", "dot") // Assign a class for styling
     	.attr("cx", x(parseDate("5/23/2017")))
     	.attr("cy", "0.003476")
@@ -157,7 +157,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	
 	// Add annotation
 	
-	svg.append("text")
+	svg1.append("text")
 	.attr("class", "annotation")
 	.attr("x", (x(parseDate("5/23/2017"))-110))
     	.attr("y", "0.003476")
