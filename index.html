@@ -791,6 +791,11 @@ d3.csv("dogecoin1.csv", function(error, data) {
 		.style("font", "10px sans-serif")
 		.call(yAxis);
 	
+	// Define the div for the tooltip
+	var div = d3.select("q").append("div")	
+    	.attr("class", "tooltip")				
+    	.style("opacity", 0);
+	
 	// Add point
 	svgf.append("circle")
     	.attr("class", "dot")
