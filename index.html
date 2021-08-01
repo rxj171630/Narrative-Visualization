@@ -79,7 +79,7 @@
 								
 												
 <!-- load the d3.js library -->	
-<script src="https://d3js.org/d3.v7.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
  
 <script>
  
@@ -89,12 +89,24 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	height = 600 - margin.top - margin.bottom;
  
 // Parse the date / time
-var	parseDate = d3.timeParse("%m/%d/%Y");
+var	parseDate = d3.time.format("%m/%d/%Y").parse;
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]).ticks(10);
-var	y = d3.scaleLinear().range([height, 0]).ticks(20);
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
  
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(10);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
 // Adds the svg canvas
 var	svg1 = d3.select("#one")
 	.append("svg")
@@ -102,20 +114,7 @@ var	svg1 = d3.select("#one")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
- 	
-// Define the axes
-var	xAxis = svg1.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
  
-var	yAxis = svg1.append("g")
-      .call(d3.axisLeft(y));
- 
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-    
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
 	data.forEach(function(d) {
@@ -220,13 +219,24 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	height = 600 - margin.top - margin.bottom;
  
 // Parse the date / time
-var	parseDate = d3.timeParse("%m/%d/%Y");
+var	parseDate = d3.time.format("%m/%d/%Y").parse;
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]).ticks(10);
-var	y = d3.scaleLinear().range([height, 0]).ticks(20);
-
-	
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
+ 
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(10);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
 // Adds the svg canvas
 var	svg2 = d3.select("#two")
 	.append("svg")
@@ -234,20 +244,6 @@ var	svg2 = d3.select("#two")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-	
-// Define the axes
-var	xAxis = svg2.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
- 
-var	yAxis = svg2.append("g")
-      .call(d3.axisLeft(y));
- 
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-   
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
@@ -349,12 +345,24 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	height = 600 - margin.top - margin.bottom;
  
 // Parse the date / time
-var	parseDate = d3.timeParse("%m/%d/%Y");
+var	parseDate = d3.time.format("%m/%d/%Y").parse;
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]).ticks(10);
-var	y = d3.scaleLinear().range([height, 0]).ticks(20);
-	
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
+ 
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(10);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
 // Adds the svg canvas
 var	svg3 = d3.select("#three")
 	.append("svg")
@@ -362,20 +370,6 @@ var	svg3 = d3.select("#three")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
- 
-// Define the axes
-var	xAxis = svg3.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
- 
-var	yAxis = svg3.append("g")
-      .call(d3.axisLeft(y));
- 
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-    
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
@@ -479,12 +473,24 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	height = 600 - margin.top - margin.bottom;
  
 // Parse the date / time
-var	parseDate = d3.timeParse("%m/%d/%Y");
+var	parseDate = d3.time.format("%m/%d/%Y").parse;
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]).ticks(10);
-var	y = d3.scaleLinear().range([height, 0]).ticks(20);
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
  
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(10);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
 // Adds the svg canvas
 var	svg4 = d3.select("#four")
 	.append("svg")
@@ -492,20 +498,6 @@ var	svg4 = d3.select("#four")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-	
-// Define the axes
-var	xAxis = svg4.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
- 
-var	yAxis = svg4.append("g")
-      .call(d3.axisLeft(y));
- 
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-    
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
@@ -609,33 +601,32 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	height = 600 - margin.top - margin.bottom;
  
 // Parse the date / time
-var	parseDate = d3.timeParse("%m/%d/%Y");
+var	parseDate = d3.time.format("%m/%d/%Y").parse;
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]).ticks(10);
-var	y = d3.scaleLinear().range([height, 0]).ticks(20);
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
  
-// Adds the svg canvas
-var	svg5 = d3.select("#five")
-	.append("svg")
-		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
-	.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
-	
 // Define the axes
-var	xAxis = svg5.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(10);
  
-var	yAxis = svg5.append("g")
-      .call(d3.axisLeft(y));
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(20);
  
 // Define the line
 var	valueline = d3.svg.line()
 	.x(function(d) { return x(d.date); })
 	.y(function(d) { return y(d.PriceUSD); });
     
+// Adds the svg canvas
+var	svg5 = d3.select("#five")
+	.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
 	data.forEach(function(d) {
@@ -732,33 +723,31 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	height = 600 - margin.top - margin.bottom;
  
 // Parse the date / time
-var	parseDate = d3.timeParse("%m/%d/%Y");
+var	parseDate = d3.time.format("%m/%d/%Y").parse;
  
 // Set the ranges
-var	x = d3.scaleTime().range([0, width]).ticks(10);
-var	y = d3.scaleLinear().range([height, 0]).ticks(20);
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
  
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(10);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
 // Adds the svg canvas
 var	svgf = d3.select("q")
 	.append("svg")
 		.attr("width", width + margin.left + margin.right + 200)
 		.attr("height", height + margin.top + margin.bottom + 200)
 	.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
-	
-// Define the axes
-var	xAxis = svgf.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
- 
-var	yAxis = svgf.append("g")
-      .call(d3.axisLeft(y));
-	
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-    
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
@@ -869,85 +858,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
     	.attr("y", y(0.685335))
 	.attr('text-anchor', 'right')
 	.text("WallStreetBets/Elon Musk");
-	
-	    // Add a clipPath: everything out of this area won't be drawn.
-    var clip = svgf.append("defs").append("svgf:clipPath")
-        .attr("id", "clip")
-        .append("svgf:rect")
-        .attr("width", width )
-        .attr("height", height )
-        .attr("x", 0)
-        .attr("y", 0);
-
-    // Add brushing
-    var brush = d3.brushX()                   // Add the brush feature using the d3.brush function
-        .extent( [ [0,0], [width,height] ] )  // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
-        .on("end", updateChart)               // Each time the brush selection changes, trigger the 'updateChart' function
-
-    // Create the area variable: where both the area and the brush take place
-    var area = svgf.append('g')
-      .attr("clip-path", "url(#clip)")
-
-    // Create an area generator
-    var areaGenerator = d3.area()
-      .x(function(d) { return x(d.date) })
-      .y0(y(0))
-      .y1(function(d) { return y(d.PriceUSD) })
-
-    // Add the area
-    area.append("path")
-      .datum(data)
-      .attr("class", "myArea")  // I add the class myArea to be able to modify it later on.
-      .attr("fill", "#69b3a2")
-      .attr("fill-opacity", .3)
-      .attr("stroke", "black")
-      .attr("stroke-width", 1)
-      .attr("d", areaGenerator )
-
-    // Add the brushing
-    area
-      .append("g")
-        .attr("class", "brush")
-        .call(brush);
-
-    // A function that set idleTimeOut to null
-    var idleTimeout
-    function idled() { idleTimeout = null; }
-
-    // A function that update the chart for given boundaries
-    function updateChart() {
-
-      // What are the selected boundaries?
-      extent = d3.event.selection
-
-      // If no selection, back to initial coordinate. Otherwise, update X axis domain
-      if(!extent){
-        if (!idleTimeout) return idleTimeout = setTimeout(idled, 350); // This allows to wait a little bit
-        x.domain([ 4,8])
-      }else{
-        x.domain([ x.invert(extent[0]), x.invert(extent[1]) ])
-        area.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
-      }
-
-      // Update axis and area position
-      xAxis.transition().duration(1000).call(d3.axisBottom(x))
-      area
-          .select('.myArea')
-          .transition()
-          .duration(1000)
-          .attr("d", areaGenerator)
-    }
-
-    // If user double click, reinitialize the chart
-    svgf.on("dblclick",function(){
-      x.domain(d3.extent(data, function(d) { return d.date; }))
-      xAxis.transition().call(d3.axisBottom(x))
-      area
-        .select('.myArea')
-        .transition()
-        .attr("d", areaGenerator)
-    });
-
  
 });
   
