@@ -149,7 +149,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svg1.append("circle")
     	.attr("class", "dot") // Assign a class for styling
     	.attr("cx", x(parseDate("5/23/2017")))
-    	.attr("cy", 0.003476)
+    	.attr("cy", y(0.003476))
     	.attr("r", 5)
 	
 	// Add annotation
@@ -157,7 +157,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svg1.append("text")
 	.attr("class", "annotation")
 	.attr("x", (x(parseDate("5/23/2017"))-110))
-    	.attr("y", 0.003476)
+    	.attr("y", y(0.003476))
 	.attr('text-anchor', 'right')
 	.text("2017 Crypto Boom");
  
@@ -279,7 +279,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svg2.append("circle")
     	.attr("class", "dot") // Assign a class for styling
     	.attr("cx", x(parseDate("1/7/2018")))
-    	.attr("cy", 0.016763)
+    	.attr("cy", y(0.016763))
     	.attr("r", 5)
 	
 	// Add annotation
@@ -287,13 +287,14 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svg2.append("text")
 	.attr("class", "annotation")
 	.attr("x", (x(parseDate("1/7/2018"))-130))
-    	.attr("y", 0.016763)
+    	.attr("y", y(0.016763))
 	.attr('text-anchor', 'right')
 	.text("Bitcoin breaks $19,783");
  
 });
  
 </script>
+									</span>
 								</ul>										
 							</section>
 
@@ -308,6 +309,118 @@ d3.csv("dogecoin1.csv", function(error, data) {
 											the same month.<br>
 											By this time, dogecoin’s market capitalization had been cut by more than half from its all-time high down to $573 million.									</li>
 										</p>
+									<span id="three" class="spotlight"> 
+											<meta charset="utf-8">
+											<style> /* set the CSS */
+ 
+ 
+												path { 
+												stroke: steelblue;
+												stroke-width: 2;
+  												fill: none;
+											}
+											.axis path,
+											.axis line {
+												fill: none;
+												stroke: grey;
+												stroke-width: 1;
+												shape-rendering: crispEdges;
+											}
+											.dot {
+    												fill: #ffab00;
+    												stroke: #fff;
+											}
+											.annotation { font: 12px Sans-Serif;)
+ 
+											</style>
+								
+												
+ 
+<script>
+ 
+// Set the dimensions of the canvas / graph
+var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+	width = 600 - margin.left - margin.right,
+	height = 400 - margin.top - margin.bottom;
+ 
+// Parse the date / time
+var	parseDate = d3.time.format("%m/%d/%Y").parse;
+ 
+// Set the ranges
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
+ 
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(10);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
+// Adds the svg canvas
+var	svg3 = d3.select("#three")
+	.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+// Get the data
+d3.csv("dogecoin1.csv", function(error, data) {
+	data.forEach(function(d) {
+		d.date = parseDate(d.date);
+		d.PriceUSD = +d.PriceUSD;
+	});
+	
+	data = data.filter(function(d,i){ return (i>1190 && i<1296)});
+ 
+	// Scale the range of the data
+	x.domain(d3.extent(data, function(d) {return d.date;}));
+	y.domain([0, d3.max(data, function(d) { return d.PriceUSD; })]);
+ 
+	// Add the valueline path.
+	svg3.append("path")	
+		.attr("class", "line")
+		.attr("d", valueline(data));
+ 
+	// Add the X Axis
+	svg3.append("g")		
+		.attr("class", "x axis")
+		.style("font", "10px sans-serif")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+ 
+	// Add the Y Axis
+	svg3.append("g")		
+		.attr("class", "y axis")
+		.style("font", "10px sans-serif")
+		.call(yAxis);
+	
+	// Add point
+	svg3.append("circle")
+    	.attr("class", "dot") // Assign a class for styling
+    	.attr("cx", x(parseDate("4/14/2018")))
+    	.attr("cy", y(0.005818))
+    	.attr("r", 5)
+	
+	// Add annotation
+	
+	svg3.append("text")
+	.attr("class", "annotation")
+	.attr("x", (x(parseDate("4/14/2018"))-130))
+    	.attr("y", y(0.005818))
+	.attr('text-anchor', 'right')
+	.text("Crypto markets rebound");
+ 
+});
+ 
+</script>
+									</span>
 								</ul>								
 							</section>
 						
