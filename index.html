@@ -96,10 +96,10 @@ var	x1 = d3.time.scale().range([0, width1]);
 var	y1 = d3.scale.linear().range([height1, 0]);
  
 // Define the axes
-var	xAxis1 = d3.svg.axis().scale(x)
+var	xAxis1 = d3.svg.axis().scale(x1)
 	.orient("bottom").ticks(10);
  
-var	yAxis1 = d3.svg.axis().scale(y)
+var	yAxis1 = d3.svg.axis().scale(y1)
 	.orient("left").ticks(20);
  
 // Define the line
