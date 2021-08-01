@@ -565,17 +565,8 @@ d3.csv("dogecoin1.csv", function(error, data) {
 										On Jan. 28, the WSB stock market mania spilled across to dogecoin and catalyzed the biggest crypto rally of the year so far. In less than
 											two days, dogecoin skyrocketed to a new all-time high of $0.087 on the Binance exchange – representing a 1,100% gain. The rally was 
 											fueled in part by a number of tweets, including one from Elon Musk, the world’s richest man and avid dogecoin fan. <br>
-										Netflix’s “Tiger King” celebrity, Carole Baskin, also tweeted a video voicing her support for the dog-themed cryptocurrency.  </p>
-								</ul>			
-							</section>
-						<!-- Sixth Section -->								
-							<section id="graph" class="main special">
-								<header class="major">
-									<h2>Dogecoin Value since December 2013</h2>
-								</header>
-								<ul class="content">
-										<span class="spotlight"> 
-										<qq>
+										Netflix’s “Tiger King” celebrity, Carole Baskin, also tweeted a video voicing her support for the dog-themed cryptocurrency.</p>
+									<span id="five" class="spotlight"> 
 											<meta charset="utf-8">
 											<style> /* set the CSS */
  
@@ -599,7 +590,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
 											.annotation { font: 12px Sans-Serif;)
  
 											</style>
-										</qq>
 								
 												
  
@@ -630,7 +620,129 @@ var	valueline = d3.svg.line()
 	.y(function(d) { return y(d.PriceUSD); });
     
 // Adds the svg canvas
-var	svgf = d3.select("qq")
+var	svg5 = d3.select("#five")
+	.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+// Get the data
+d3.csv("dogecoin1.csv", function(error, data) {
+	data.forEach(function(d) {
+		d.date = parseDate(d.date);
+		d.PriceUSD = +d.PriceUSD;
+	});
+	
+	data = data.filter(function(d,i){ return i<1049});
+ 
+	// Scale the range of the data
+	x.domain(d3.extent(data, function(d) {return d.date;}));
+	y.domain([0, d3.max(data, function(d) { return d.PriceUSD; })]);
+ 
+	// Add the valueline path.
+	svg5.append("path")	
+		.attr("class", "line")
+		.attr("d", valueline(data));
+ 
+	// Add the X Axis
+	svg5.append("g")		
+		.attr("class", "x axis")
+		.style("font", "10px sans-serif")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+ 
+	// Add the Y Axis
+	svg5.append("g")		
+		.attr("class", "y axis")
+		.style("font", "10px sans-serif")
+		.call(yAxis);
+	
+	// Add point
+	svg5.append("circle")
+    	.attr("class", "dot") // Assign a class for styling
+    	.attr("cx", x(parseDate("5/7/2021")))
+    	.attr("cy", y(0.685335))
+    	.attr("r", 5)
+	
+	// Add annotation
+	
+	svg5.append("text")
+	.attr("class", "annotation")
+	.attr("x", (x(parseDate("5/7/2021"))-160))
+    	.attr("y", y(0.685335))
+	.attr('text-anchor', 'right')
+	.text("WallStreetBets/Elon Musk");
+ 
+});
+ 
+</script>
+									</span>
+								</ul>			
+							</section>
+						<!-- Sixth Section -->								
+							<section id="graph" class="main special">
+								<header class="major">
+									<h2>Dogecoin Value since December 2013</h2>
+								</header>
+								<ul class="content">
+										<span class="spotlight"> 
+										<q>
+											<meta charset="utf-8">
+											<style> /* set the CSS */
+ 
+ 
+												path { 
+												stroke: steelblue;
+												stroke-width: 2;
+  												fill: none;
+											}
+											.axis path,
+											.axis line {
+												fill: none;
+												stroke: grey;
+												stroke-width: 1;
+												shape-rendering: crispEdges;
+											}
+											.dot {
+    												fill: #ffab00;
+    												stroke: #fff;
+											}
+											.annotation { font: 12px Sans-Serif;)
+ 
+											</style>
+										</q>
+								
+												
+ 
+<script>
+ 
+// Set the dimensions of the canvas / graph
+var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+	width = 1000 - margin.left - margin.right,
+	height = 600 - margin.top - margin.bottom;
+ 
+// Parse the date / time
+var	parseDate = d3.time.format("%m/%d/%Y").parse;
+ 
+// Set the ranges
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
+ 
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(10);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
+// Adds the svg canvas
+var	svgf = d3.select("q")
 	.append("svg")
 		.attr("width", width + margin.left + margin.right + 200)
 		.attr("height", height + margin.top + margin.bottom + 200)
