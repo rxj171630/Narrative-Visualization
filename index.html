@@ -151,7 +151,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	// Add point
 	svg.append("circle")
     	.attr("class", "dot") // Assign a class for styling
-    	.attr("cx", parseDate("5/23/2017"))
+    	.attr("cx", x(parseDate("5/23/2017")))
     	.attr("cy", "0.003476")
     	.attr("r", 5)
  
