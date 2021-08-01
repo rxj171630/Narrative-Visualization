@@ -95,19 +95,6 @@ var	parseDate = d3.timeParse("%m/%d/%Y");
 var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
-// Define the axes
-var	xAxis = svg.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
- 
-var	yAxis = svg.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
- 
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-    
 // Adds the svg canvas
 var	svg1 = d3.select("#one")
 	.append("svg")
@@ -115,7 +102,20 @@ var	svg1 = d3.select("#one")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 	
+// Define the axes
+var	xAxis = svg1.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
  
+var	yAxis = svg1.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
 	data.forEach(function(d) {
@@ -225,20 +225,8 @@ var	parseDate = d3.timeParse("%m/%d/%Y");
 // Set the ranges
 var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
- 
-// Define the axes
-var	xAxis = svg.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
- 
-var	yAxis = svg.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
- 
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-    
+
+	
 // Adds the svg canvas
 var	svg2 = d3.select("#two")
 	.append("svg")
@@ -246,6 +234,20 @@ var	svg2 = d3.select("#two")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
+// Define the axes
+var	xAxis = svg2.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
+ 
+var	yAxis = svg2.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+   
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
@@ -352,20 +354,7 @@ var	parseDate = d3.timeParse("%m/%d/%Y");
 // Set the ranges
 var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
- 
-// Define the axes
-var	xAxis = svg.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
- 
-var	yAxis = svg.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
- 
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-    
+	
 // Adds the svg canvas
 var	svg3 = d3.select("#three")
 	.append("svg")
@@ -373,6 +362,20 @@ var	svg3 = d3.select("#three")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+// Define the axes
+var	xAxis = svg3.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
+ 
+var	yAxis = svg3.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
@@ -482,19 +485,6 @@ var	parseDate = d3.timeParse("%m/%d/%Y");
 var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
-// Define the axes
-var	xAxis = svg.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
- 
-var	yAxis = svg.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
- 
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-    
 // Adds the svg canvas
 var	svg4 = d3.select("#four")
 	.append("svg")
@@ -502,6 +492,20 @@ var	svg4 = d3.select("#four")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
+// Define the axes
+var	xAxis = svg4.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
+ 
+var	yAxis = svg4.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
@@ -611,12 +615,20 @@ var	parseDate = d3.timeParse("%m/%d/%Y");
 var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
+// Adds the svg canvas
+var	svg5 = d3.select("#five")
+	.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
+	
 // Define the axes
-var	xAxis = svg.append("g")
+var	xAxis = svg5.append("g")
 	.attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)).ticks(10);
  
-var	yAxis = svg.append("g")
+var	yAxis = svg5.append("g")
       .call(d3.axisLeft(y)).ticks(20);
  
 // Define the line
@@ -624,14 +636,6 @@ var	valueline = d3.svg.line()
 	.x(function(d) { return x(d.date); })
 	.y(function(d) { return y(d.PriceUSD); });
     
-// Adds the svg canvas
-var	svg5 = d3.select("#five")
-	.append("svg")
-		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
-	.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
- 
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
 	data.forEach(function(d) {
@@ -734,25 +738,27 @@ var	parseDate = d3.timeParse("%m/%d/%Y");
 var	x = d3.scaleTime().range([0, width]);
 var	y = d3.scaleLinear().range([height, 0]);
  
-// Define the axes
-var	xAxis = svg.append("g")
-	.attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)).ticks(10);
- 
-var	yAxis = svg.append("g")
-      .call(d3.axisLeft(y)).ticks(20);
-// Define the line
-var	valueline = d3.svg.line()
-	.x(function(d) { return x(d.date); })
-	.y(function(d) { return y(d.PriceUSD); });
-    
 // Adds the svg canvas
 var	svgf = d3.select("q")
 	.append("svg")
 		.attr("width", width + margin.left + margin.right + 200)
 		.attr("height", height + margin.top + margin.bottom + 200)
 	.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
+	
+// Define the axes
+var	xAxis = svgf.append("g")
+	.attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x)).ticks(10);
+ 
+var	yAxis = svgf.append("g")
+      .call(d3.axisLeft(y)).ticks(20);
+	
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.PriceUSD); });
+    
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
