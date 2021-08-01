@@ -444,7 +444,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svgf.append("circle")
     	.attr("class", "dot")
     	.attr("cx", x(parseDate("5/23/2017")))
-    	.attr("cy", height-0.003476)
+    	.attr("cy", y(0.003476))
     	.attr("r", 5)
 	
 	// Add annotation
@@ -452,7 +452,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svgf.append("text")
 	.attr("class", "annotation")
 	.attr("x", (x(parseDate("5/23/2017"))-110))
-    	.attr("y", height-0.003476)
+    	.attr("y", y(0.003476))
 	.attr('text-anchor', 'right')
 	.text("2017 Crypto Boom");
 	
@@ -460,7 +460,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svgf.append("circle")
     	.attr("class", "dot") // Assign a class for styling
     	.attr("cx", x(parseDate("1/7/2018")))
-    	.attr("cy", "0.016763")
+    	.attr("cy", y(0.016763))
     	.attr("r", 5)
 	
 	// Add annotation
@@ -468,7 +468,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svgf.append("text")
 	.attr("class", "annotation")
 	.attr("x", (x(parseDate("1/7/2018"))-130))
-    	.attr("y", height-0.016763)
+    	.attr("y", y(0.016763))
 	.attr('text-anchor', 'right')
 	.text("Bitcoin breaks $19,783");
  
