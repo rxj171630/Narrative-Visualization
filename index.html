@@ -66,13 +66,13 @@
 												stroke-width: 2;
   												fill: none;
 											}
- 
 											.axis path,
 											.axis line {
 												fill: none;
 												stroke: grey;
 												stroke-width: 1;
 												shape-rendering: crispEdges;
+												font: 8px sans-serif; 
 											}
  
 											</style>
@@ -137,14 +137,14 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	// Add the X Axis
 	svg.append("g")		
 		.attr("class", "x axis")
-		.style("font", "8px")
+		.style("font", "8px times")
 		.attr("transform", "translate(0," + height + ")")
 		.call(xAxis);
  
 	// Add the Y Axis
 	svg.append("g")		
 		.attr("class", "y axis")
-		.style("font", "8px")
+		.style("font", "8px times")
 		.call(yAxis);
  
 });
