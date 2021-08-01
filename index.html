@@ -806,7 +806,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(formatTime(d.date) + "<br/>"  + d.close)	
+            div	.html("2017 Crypto Boom")	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
@@ -815,15 +815,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
                 .duration(500)		
                 .style("opacity", 0);	
         });	
-	
-	// Add annotation
-	
-	svgf.append("text")
-	.attr("class", "annotation")
-	.attr("x", (x(parseDate("5/23/2017"))-110))
-    	.attr("y", y(0.003476))
-	.attr('text-anchor', 'right')
-	.text("2017 Crypto Boom");
 	
 	// Add point
 	svgf.append("circle")
@@ -835,7 +826,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(formatTime(d.date) + "<br/>"  + d.close)	
+            div	.html("Bitcoin breaks $19,783")	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
@@ -845,14 +836,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
                 .style("opacity", 0);	
         });	
 	
-	// Add annotation
-	
-	svgf.append("text")
-	.attr("class", "annotation")
-	.attr("x", (x(parseDate("1/7/2018"))-130))
-    	.attr("y", y(0.016763))
-	.attr('text-anchor', 'right')
-	.text("Bitcoin breaks $19,783");
 	
 	// Add point
 	svgf.append("circle")
@@ -864,7 +847,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(formatTime(d.date) + "<br/>"  + d.close)	
+            div	.html("Crypto markets rebound")	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
@@ -873,15 +856,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
                 .duration(500)		
                 .style("opacity", 0);	
         });	
-	
-	// Add annotation
-	
-	svgf.append("text")
-	.attr("class", "annotation")
-	.attr("x", (x(parseDate("4/19/2018"))-135))
-    	.attr("y", y(0.005818))
-	.attr('text-anchor', 'right')
-	.text("Crypto markets rebound");
 	
 		// Add point
 	svgf.append("circle")
@@ -893,7 +867,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(formatTime(d.date) + "<br/>"  + d.close)	
+            div	.html("Ethereum/Dogecoin bridge test")	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
@@ -902,15 +876,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
                 .duration(500)		
                 .style("opacity", 0);	
         });	
-	
-	// Add annotation
-	
-	svgf.append("text")
-	.attr("class", "annotation")
-	.attr("x", (x(parseDate("9/10/2018"))-170))
-    	.attr("y", y(0.006851))
-	.attr('text-anchor', 'right')
-	.text("Ethereum/Dogecoin bridge test");
 	
 	// Add point
 	svgf.append("circle")
@@ -922,7 +887,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(formatTime(d.date) + "<br/>"  + d.close)	
+            div	.html("WallStreetBets/Elon Musk")	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
@@ -931,15 +896,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
                 .duration(500)		
                 .style("opacity", 0);	
         });
-	
-	// Add annotation
-	
-	svgf.append("text")
-	.attr("class", "annotation")
-	.attr("x", (x(parseDate("5/7/2021"))-155))
-    	.attr("y", y(0.685335))
-	.attr('text-anchor', 'right')
-	.text("WallStreetBets/Elon Musk");
  
 });
   
