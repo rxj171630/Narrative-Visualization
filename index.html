@@ -177,7 +177,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
 									<h2>Bitcoin breaks $19,783, lifts dogecoin</h2>
 								</header>
 								<ul class="content">
-									<li>
 										<p>By November of 2017, significant buying momentum had returned to the crypto market, with huge trading volumes 
 											driving bitcoin (BTC, +4.4%) to a height of $19,783. The global crypto market capitalization reached a 
 											staggering $830 billion and sent smaller-cap projects like dogecoin parabolic. <br><br>
@@ -185,7 +184,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
 											On Jan. 7, 2018, dogecoin broke over $0.02 – 380% higher than its previous high. Its market capitalization
 											at this stage was $1.6 billion. However, this was very short-lived and within eight days the price unraveled
 											over 70% back down to $0.0047. </p>
-									</li>
 								</ul>
 							</section>
 
@@ -195,13 +193,11 @@ d3.csv("dogecoin1.csv", function(error, data) {
 									<h2>Crypto markets rebound</h2>
 								</header>
 								<ul class="content">
-									<li>
 										<p>On April 14, 2018, just before the entire market entered “crypto winter” and crashed to former lows, a vast majority of crypto projects staged
 											a brief recovery. In three days, dogecoin rose 103% from $0.0020 to $0.0041. For comparison, bitcoin only managed to secure a 40% rise within
 											the same month.<br>
 											By this time, dogecoin’s market capitalization had been cut by more than half from its all-time high down to $573 million.									</li>
 										</p>
-									</li>
 								</ul>								
 							</section>
 						
@@ -211,7 +207,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
 									<h2>Ethereum/Dogecoin bridge test</h2>
 								</header>
 								<ul class="content">
-									<li>
 										<p>The first major dogecoin rally that was largely uncorrelated to the rest of the crypto market was in September 2018 when a system
 											test of the Dogecoin/Ethereum bridge was completed. The bridge was supposed to be a new update that would allow interoperability
 											between the two blockchains. The announcement reignited community support for the project and dogecoin’s price rose 173% in 48 hours.
@@ -219,7 +214,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
 											insufficient funding to continue developing the bridge and the update was put on hold. Since then, there has been no mention of whether
 											this bridge between Dogecoin and Ethereum will ever be continued. 
 										</p>
-									</li>
 							</section>
 
 						<!-- Get Started -->
@@ -228,7 +222,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
 									<h2>WallStreetBets mania, Elon Musk tweet</h2>
 								</header>
 								<ul class="content">
-									<li>
 										<p>On Jan. 11, 2021, the traditional financial markets were heavily disrupted by a subreddit group called the WallStreetBets
 											(aka WSB). These amateur stock traders decided to unite against traditional financial institutions and pump a number of 
 											stocks that major hedge funds were betting on falling in value, such as GameStop, BlackBerry, AMC, Nokia and Bed Bath & Beyond.<br>
@@ -236,7 +229,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
 											two days, dogecoin skyrocketed to a new all-time high of $0.087 on the Binance exchange – representing a 1,100% gain. The rally was 
 											fueled in part by a number of tweets, including one from Elon Musk, the world’s richest man and avid dogecoin fan. <br>
 										Netflix’s “Tiger King” celebrity, Carole Baskin, also tweeted a video voicing her support for the dog-themed cryptocurrency.  </p>
-									</li>
 								</ul>			
 							</section>
 								
@@ -245,7 +237,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
 									<h2>Dogecoin Value since 2013</h2>
 								</header>
 								<ul class="content">
-									<li>
 										<span class="spotlight"> 
 										<qq>
 											<meta charset="utf-8">
@@ -343,7 +334,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svgf.append("circle")
     	.attr("class", "dot")
     	.attr("cx", x(parseDate("5/23/2017")))
-    	.attr("cy", 0.003476)
+    	.attr("cy", +0.003476)
     	.attr("r", 5)
 	
 	// Add annotation
@@ -351,7 +342,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 	svgf.append("text")
 	.attr("class", "annotation")
 	.attr("x", (x(parseDate("5/23/2017"))-110))
-    	.attr("y", 0.003476)
+    	.attr("y", +0.003476)
 	.attr('text-anchor', 'right')
 	.text("2017 Crypto Boom.");
  
@@ -361,7 +352,6 @@ d3.csv("dogecoin1.csv", function(error, data) {
 										
 									
 									</span>
-									</li>
 								</ul>			
 							</section>
 
