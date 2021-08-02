@@ -750,14 +750,17 @@ var	yAxis = d3.svg.axis().scale(y)
 var	valueline = d3.svg.line()
 	.x(function(d) { return x(d.date); })
 	.y(function(d) { return y(d.PriceUSD); });
-    
+
 // Adds the svg canvas
 var	svgf = d3.select("q")
 	.append("svg")
 		.attr("width", width + margin.left + margin.right + 200)
 		.attr("height", height + margin.top + margin.bottom + 200)
 	.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+	.append("div")
+		.attr("class", "tooltip")
+    		.style("opacity", 0);
  
 // Get the data
 d3.csv("dogecoin1.csv", function(error, data) {
@@ -788,13 +791,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 		.attr("class", "y axis")
 		.style("font", "10px sans-serif")
 		.call(yAxis);
-	
-	// Define the div for the tooltip
-	var div = d3.select("q").append("div")	
-    	.attr("class", "tooltip")				
-    	.style("opacity", 0);
-	
-	svgf.append(div);
+
 	
 	// Add point
 	svgf.append("circle")
