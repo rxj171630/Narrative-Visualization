@@ -790,7 +790,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
 		.call(yAxis);
 	
 	// Define the div for the tooltip
-	var div = svgf.append("div")	
+	var div = d3.select("q").append("div")	
     	.attr("class", "tooltip")				
     	.style("opacity", 0);
 	
