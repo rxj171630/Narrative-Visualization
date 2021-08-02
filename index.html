@@ -807,7 +807,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html("2017 Crypto Boom<br>" +cx +"<br>$" +cy)	
+            div	.html("2017 Crypto Boom<br>" +parseDate("5/23/2017") +"<br>$0.003476")	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
@@ -827,7 +827,7 @@ d3.csv("dogecoin1.csv", function(error, data) {
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html("Bitcoin breaks $19,783<br>" +cx +"<br>$" +cy)	
+            div	.html("Bitcoin breaks $19,783<br>" +parseDate("1/7/2018") +"<br>$0.016763")	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
